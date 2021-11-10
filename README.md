@@ -4,9 +4,9 @@
 html
 ```
 <video autoplay loop muted>
-  <source src="assets/video/lg.mp4" media="(min-width: 1400px)">
-  <source src="assets/video/xs.mp4" media="(min-width: 640px)">
-  <source src="assets/video/mob.mp4" media="(min-width: 0px)">
+  <source srcset="assets/video/lg.mp4" media="(min-width: 1400px)">
+  <source srcset="assets/video/xs.mp4" media="(min-width: 640px)">
+  <source srcset="assets/video/mob.mp4" media="(min-width: 0px)">
 </video>
 ```
 
