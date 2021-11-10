@@ -12,7 +12,8 @@ export class Video {
     $list.forEach(($el) => {
       result.push({
         src: $el.getAttribute('src'),
-        screen: Number($el.getAttribute('screen')),
+        media: $el.getAttribute('media'),
+        screen: Number($el.getAttribute('media').replace(/\D/g, '')),
       });
     });
 
@@ -32,7 +33,7 @@ export class Video {
       const sortList = list.sort((a, b) => a.screen - b.screen);
 
       sortList.forEach((item) => {
-        if (window.matchMedia(`(min-width: ${item.screen}px)`).matches) {
+        if (window.matchMedia(`${item.media}`).matches) {
           this.appendVideo($video, item.src);
         }
       });
