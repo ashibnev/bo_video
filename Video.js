@@ -6,7 +6,7 @@ export class Video {
     this.initVideo();
   }
 
-  getScreen($el) {
+  getIndexOfScreen($el) {
     const media = $el.getAttribute('media');
     const rx = new RegExp('min-device-pixel-ratio', 'g');
     const isRetina = rx.test(media);
@@ -21,7 +21,7 @@ export class Video {
       result.push({
         src: $el.getAttribute('srcset'),
         media: $el.getAttribute('media'),
-        screen: this.getScreen($el),
+        index: this.getIndexOfScreen($el),
       });
     });
 
@@ -38,7 +38,7 @@ export class Video {
     this.$videoList.forEach(($video) => {
       const $sourceList = [...$video.querySelectorAll('source')];
       const list = this.getList($sourceList);
-      const sortList = list.sort((a, b) => a.screen - b.screen);
+      const sortList = list.sort((a, b) => a.index - b.index);
       // console.log(sortList);
 
       sortList.forEach((item) => {
